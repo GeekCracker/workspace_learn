@@ -9,8 +9,8 @@ public class Test {
 
 	public static void main(String[] args) {
 		Character ch = '\u0000';
-		char a = '’≈';
-		String b = "\u0000’≈";
+		char a = '‰∏≠';
+		String b = "\u0000‰∏≠ÂõΩ";
 		String c = "\u0000";
 		String d = "\u0001";
 		Boolean flag1 = Character.isDefined('a');
