@@ -17,8 +17,6 @@ public class UserController extends BaseController<User> {
 
     @Override
     protected BaseService<User> getService() {
-        int i = 0;
-        i = 9/0;
         return userService;
     }
 }
