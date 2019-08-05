@@ -1,7 +1,6 @@
-# learn-springboot-parent
-用来学习spring-boot框架的父工程
-目录
-=
+# learn-springboot-parent(用来学习spring-boot框架的父工程)
+目录：
+====
 * [1、learn-day20190801](#1learn-day20190801)
 * [2、learn-day20190803](#2learn-day20190803)
 ## 1、learn-day20190801
