@@ -6,10 +6,11 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
 @ComponentScan(basePackages = "com.springboot.learn")
-@EnableAutoConfiguration
 @SpringBootConfiguration
-public class BootRun {
+@EnableAutoConfiguration
+public class LearnDay20190803Run {
+
     public static void main(String[] args) {
-        SpringApplication.run(BootRun.class,args);
+        SpringApplication.run(LearnDay20190803Run.class,args);
     }
 }
