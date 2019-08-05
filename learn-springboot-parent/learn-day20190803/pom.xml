@@ -12,16 +12,21 @@
     <artifactId>learn-day20190803</artifactId>
     <packaging>pom</packaging>
 
-<!--    <dependencies>
+    <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-    </dependencies>-->
+    </dependencies>
 
 
     <modules>
         <module>learn-day20190803-boot</module>
+        <module>learn-day20190803-interceptor</module>
+        <module>learn-day20190803-admin-controller</module>
+        <module>learn-day20190803-service</module>
+        <module>learn-day20190803-domain</module>
+        <module>learn-day20190803-configuration</module>
     </modules>
 
 

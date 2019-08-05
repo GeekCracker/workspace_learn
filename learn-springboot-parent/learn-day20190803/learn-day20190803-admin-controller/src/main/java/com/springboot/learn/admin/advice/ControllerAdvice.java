@@ -31,9 +31,7 @@ public class ControllerAdvice {
     @ResponseBody
     @ExceptionHandler(value = Throwable.class)
     public ResponseResult doError(Exception e) throws Exception{
-        //判断是否是参数校验的异常
         if(e instanceof BindException){
-            //获取参数校验结果集
             BindingResult result = ((BindException) e).getBindingResult();
             return  ResponseResult.args_validate_fail(validate(result));
         }
@@ -44,7 +42,7 @@ public class ControllerAdvice {
      * @param result 传入参数异常的结果
      * @return 返回需要返回给前端的信息
      */
-    private Map<String,Object> validate(BindingResult result) {
+    protected Map<String,Object> validate(BindingResult result) {
         if (result.hasFieldErrors()) {
             Map<String,Object> map = new LinkedHashMap<String ,Object>();
             List<FieldError> errorList = result.getFieldErrors();

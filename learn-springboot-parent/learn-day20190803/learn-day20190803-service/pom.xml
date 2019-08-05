@@ -9,20 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>learn-day20190803-boot</artifactId>
+    <artifactId>learn-day20190803-service</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.springboot.learn</groupId>
-            <artifactId>learn-day20190803-admin-controller</artifactId>
+            <artifactId>learn-day20190803-domain</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>com.springboot.learn</groupId>
-            <artifactId>learn-day20190803-configuration</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
     </dependencies>
 
 </project>
