@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>learn-springboot-parent</artifactId>
+        <groupId>com.springboot.learn</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>learn-day20190806</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>learn-day20190806-boot-001</module>
+        <module>learn-day20190806-boot-002</module>
+        <module>learn-day20190806-boot-003</module>
+        <module>learn-day20190806-boot-004</module>
+        <module>learn-day20190806-domain</module>
+        <module>learn-day20190806-configuration</module>
+        <module>learn-day20190806-service</module>
+        <module>learn-day20190806-admin-controller-001</module>
+        <module>learn-day20190806-admin-controller-002</module>
+        <module>learn-day20190806-admin-controller-003</module>
+        <module>learn-day20190806-admin-controller-004</module>
+        <module>learn-day20190806-eureka-server</module>
+    </modules>
+
+
+</project>

@@ -66,6 +66,7 @@
         <module>learn-day20190801</module>
         <module>learn-day20190803</module>
         <module>learn-day20190805</module>
+        <module>learn-day20190806</module>
     </modules>
 
     <build>
