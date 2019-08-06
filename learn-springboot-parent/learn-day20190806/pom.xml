@@ -24,6 +24,9 @@
         <module>learn-day20190806-admin-controller-003</module>
         <module>learn-day20190806-admin-controller-004</module>
         <module>learn-day20190806-eureka-server</module>
+        <module>learn-day20190806-boot-005</module>
+        <module>learn-day20190806-admin-controller-005</module>
+        <module>learn-day20190806-service-feign</module>
     </modules>
 
 
