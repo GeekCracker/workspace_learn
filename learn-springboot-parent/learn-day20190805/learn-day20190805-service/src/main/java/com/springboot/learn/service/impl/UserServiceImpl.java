@@ -10,7 +10,7 @@ import java.util.Date;
 public class UserServiceImpl extends BaseServiceImpl<User> implements UserService {
 
     @Override
-    public User queryById(String id) {
+    public User queryById(String id,String seq) {
         User user = new User();
         user.setId(id);
         user.setUserName("张三"+id);
@@ -19,6 +19,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         Date date = new Date();
         user.setCreatedTime(date);
         user.setUpdatedTime(date);
+        user.setSeq(seq);
         return user;
     }
 }

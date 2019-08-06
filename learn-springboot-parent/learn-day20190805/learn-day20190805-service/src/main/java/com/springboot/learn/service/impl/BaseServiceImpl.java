@@ -4,7 +4,7 @@ import com.springboot.learn.service.BaseService;
 
 public abstract class BaseServiceImpl<T> implements BaseService<T> {
     @Override
-    public T queryById(String id) {
+    public T queryById(String id,String seq) {
         return null;
     }
 }

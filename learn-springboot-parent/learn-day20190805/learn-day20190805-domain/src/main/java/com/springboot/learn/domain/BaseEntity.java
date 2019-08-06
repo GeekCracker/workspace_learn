@@ -11,6 +11,8 @@ public class BaseEntity implements Serializable {
 
     private Date updatedTime;
 
+    private String seq;
+
     public String getId() {
         return id;
     }
@@ -33,5 +35,13 @@ public class BaseEntity implements Serializable {
 
     public void setUpdatedTime(Date updatedTime) {
         this.updatedTime = updatedTime;
+    }
+
+    public String getSeq() {
+        return seq;
+    }
+
+    public void setSeq(String seq) {
+        this.seq = seq;
     }
 }
