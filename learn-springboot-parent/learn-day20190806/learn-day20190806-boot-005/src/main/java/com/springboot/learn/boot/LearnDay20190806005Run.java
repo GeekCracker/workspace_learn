@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Configuration;
 @EnableAutoConfiguration
 @Configuration
 @ComponentScan(basePackages = "com.springboot.learn")
-@EnableEurekaClient
-@EnableFeignClients(basePackages = "com.springboot.learn")
+@EnableEurekaClient//启动Eureka客户端
+@EnableFeignClients(basePackages = "com.springboot.learn")//启动Feign客户端，主要扫描@FeignClient注解标注的java文件
 public class LearnDay20190806005Run {
 
     public static void main(String[] args) {
