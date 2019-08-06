@@ -29,9 +29,16 @@
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>${spring.boot.version}</version>
             </dependency>
+            <!-- spring boot 安全认证 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-security</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <!-- spring boot 健康检查 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
                 <version>${spring.boot.version}</version>
             </dependency>
             <dependency>
