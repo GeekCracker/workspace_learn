@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>learn-springboot-parent</artifactId>
+        <groupId>com.springboot.learn</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>learn-day20190807</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>learn-day20190807-eureka-server</module>
+        <module>learn-day20190807-boot-customer-001</module>
+        <module>learn-day20190807-boot-customer-002</module>
+        <module>learn-day20190807-boot-provider-001</module>
+        <module>learn-day20190807-boot-provider-002</module>
+        <module>learn-day20190807-boot-provider-003</module>
+        <module>learn-day20190807-admin-controller-customer-001</module>
+        <module>learn-day20190807-admin-controller-customer-002</module>
+        <module>learn-day20190807-admin-controller-provider-001</module>
+        <module>learn-day20190807-admin-controller-provider-002</module>
+        <module>learn-day20190807-admin-controller-provider-003</module>
+        <module>learn-day20190807-service-provider</module>
+        <module>learn-day20190807-service-customer-feign</module>
+        <module>learn-day20190807-domain</module>
+        <module>learn-day20190807-configuration-provider</module>
+        <module>learn-day20190807-configuration-customer</module>
+    </modules>
+
+
+</project>

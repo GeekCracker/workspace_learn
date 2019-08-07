@@ -19,7 +19,7 @@
     <properties>
         <spring.boot.version>2.1.3.RELEASE</spring.boot.version>
         <spring.cloud.version>1.4.3.RELEASE</spring.cloud.version>
-        <eureka.updates.version>2.1.2.RELEASE</eureka.updates.version>
+        <spring.cloud.updates.version>2.1.2.RELEASE</spring.cloud.updates.version>
     </properties>
 
     <dependencyManagement>
@@ -54,7 +54,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-                <version>${eureka.updates.version}</version>
+                <version>${spring.cloud.updates.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -64,7 +64,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-                <version>${eureka.updates.version}</version>
+                <version>${spring.cloud.updates.version}</version>
             </dependency>
 
             <!-- feign客户端 -->
@@ -76,7 +76,19 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
-                <version>${eureka.updates.version}</version>
+                <version>${spring.cloud.updates.version}</version>
+            </dependency>
+
+            <!-- 熔断器 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-hystrix</artifactId>
+                <version>${spring.cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+                <version>${spring.cloud.updates.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -86,6 +98,7 @@
         <module>learn-day20190803</module>
         <module>learn-day20190805</module>
         <module>learn-day20190806</module>
+        <module>learn-day20190807</module>
     </modules>
 
     <build>
