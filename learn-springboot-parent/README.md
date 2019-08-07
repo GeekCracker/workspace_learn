@@ -1,4 +1,6 @@
 # learn-springboot-parent(用来学习spring-boot框架的父工程)
+  说明：包含spring-cloud全家桶，eureka、ribbon、feign、hystirx、zuul、security等
+  =====
 # 目录：
 ### [2019年8月](#1learn-day20190801)
    * [learn-day20190801](#1learn-day20190801) [learn-day20190803](#2learn-day20190803) [learn-day20190805](#3learn-day20190805) [learn-day20190806](#4learn-day20190806) [learn-day20190807](#5learn-day20190807)
