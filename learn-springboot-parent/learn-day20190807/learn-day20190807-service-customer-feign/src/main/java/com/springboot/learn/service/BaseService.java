@@ -1,8 +1,8 @@
 package com.springboot.learn.service;
 
-import com.springboot.learn.response.ResponseResult;
+import org.springframework.http.ResponseEntity;
 
 public interface BaseService<T> {
 
-    ResponseResult queryById(String id);
+    ResponseEntity<Object> queryById(String id);
 }

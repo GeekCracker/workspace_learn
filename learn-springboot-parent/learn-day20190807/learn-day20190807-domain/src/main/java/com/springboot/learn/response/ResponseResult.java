@@ -1,6 +1,6 @@
 package com.springboot.learn.response;
 
-public class ResponseResult {
+public class ResponseResult{
 
     private Integer code;
 
