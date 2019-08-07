@@ -22,6 +22,10 @@ public abstract class BaseController<T> {
      *      即使配置文件中配置了feign.hystrix.enabled=true启动熔断器，也还是没有生效
      * 目前的解决方案：服务提供者增加全局的异常处理器，拦截controller返回的异常，返回相应的信息给服务调用者，
      *                 服务调用者解析该返回结果，并返回
+     * spring-cloud-starter-eureka版本：1.4.3.RELEASE
+     * spring-cloud-starter-eureka-server版本：1.4.3.RELEASE
+     * spring-cloud-starter-feign版本：1.4.3.RELEASE
+     * spring-cloud-starter-hystrix版本：1.4.3.RELEASE
      * @param id
      * @return
      */

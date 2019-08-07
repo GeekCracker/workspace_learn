@@ -41,11 +41,7 @@
                 <artifactId>spring-boot-starter-actuator</artifactId>
                 <version>${spring.boot.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-eureka</artifactId>
-                <version>${spring.cloud.version}</version>
-            </dependency>
+            <!-- eureka服务端 -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-eureka-server</artifactId>
@@ -56,6 +52,7 @@
                 <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
                 <version>${spring.cloud.updates.version}</version>
             </dependency>
+            <!-- eureka客户端 -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-eureka</artifactId>
