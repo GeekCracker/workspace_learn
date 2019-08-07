@@ -19,6 +19,13 @@ public class ResponseResult{
         this.data = data;
     }
 
+    public static ResponseResult build(Integer code,String message){
+        return new ResponseResult(code,message);
+    }
+
+    public static ResponseResult build(Integer code,String message,Object data){
+        return new ResponseResult(code,message,data);
+    }
 
     public static ResponseResult ok(){
         return new ResponseResult(CodeMessage.SUCCESS.getCode(),CodeMessage.SUCCESS.getMessage());
