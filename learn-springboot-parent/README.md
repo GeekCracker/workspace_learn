@@ -27,8 +27,8 @@
     在这里遇到一个坑，暂时还没解决：
            在通过feign进行远程调用时，如果服务提供者返回异常，熔断器的fallback回退机制没有生效，
            即使配置文件中配置了feign.hystrix.enabled=true启动熔断器，也还是没有生效
-     目前的解决方案：服务提供者增加全局的异常处理器，拦截controller返回的异常，返回相应的信息给服务调用者，
-                   服务调用者解析该返回结果，并返回
+     目前的解决方案：服务提供者通过@ControllerAdvice和@ExceptionHandler增加全局的异常处理器，
+                    拦截controller返回的异常，返回相应的信息给服务调用者，服务调用者解析该返回结果，并返回
      spring-cloud-starter-eureka版本：1.4.3.RELEASE
      spring-cloud-starter-eureka-server版本：1.4.3.RELEASE
      spring-cloud-starter-feign版本：1.4.3.RELEASE
