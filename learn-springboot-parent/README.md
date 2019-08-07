@@ -11,15 +11,15 @@
      spring-boot 请求拦截器HandlerInterceptor接口的使用，以及通过WebMvcConfigurer接口的addInterceptors方法进行拦截器的注册
 * [返回目录](#2019年8月)
 ## 3、[learn-day20190805](learn-day20190805)
-     spring-cloud 基本用法，包含三个服务提供者和一个服务消费者，采用Ribbon的随机负载均衡策略
+     spring-cloud 基本用法，包含三个服务提供者和一个服务消费者，服务注册中心采用eureka，采用Ribbon的随机负载均衡策略
 * [返回目录](#2019年8月)
 ## 4、[learn-day20190806](learn-day20190806)
      spring-cloud 基本用法，包含三个服务提供者和两个服务消费者，boot-004是采用ribbon客户端调用服务，boot-005是采用feign客户端调用服务，
-     采用Ribbon的随机负载均衡策略，并采用了security认证，注册中心页面需要登录才能进入
+     服务注册中心采用eureka，采用Ribbon的随机负载均衡策略，并采用了security认证，注册中心页面需要登录才能进入
 * [返回目录](#2019年8月)
 ## 5、[learn-day20190807](learn-day20190807)
      spring-cloud 基本用法，包含三个服务提供者和两个服务消费者，
-     customer-001采用ribbon客户端调用服务，customer-002采用feign客户端调用服务，
+     customer-001采用ribbon客户端调用服务，customer-002采用feign客户端调用服务，服务注册中心采用eureka，
      两个客户端分别引入了相应的Hystrix熔断器实现方式，
      当服务提供者发生异常或客户端访问服务端连接超时，会触发fallback回退机制指定的方法
 * [返回目录](#2019年8月)
