@@ -11,6 +11,16 @@
 
     <artifactId>learn-day20190808</artifactId>
     <packaging>pom</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>Greenwich.SR2</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+
     <modules>
         <module>learn-day20190808-admin-controller-provider-001</module>
         <module>learn-day20190808-admin-controller-provider-002</module>

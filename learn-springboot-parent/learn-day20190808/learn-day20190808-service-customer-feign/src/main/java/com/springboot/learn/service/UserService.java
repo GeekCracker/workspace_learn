@@ -1,7 +1,7 @@
 package com.springboot.learn.service;
 
 import com.springboot.learn.domain.User;
-import com.springboot.learn.hystrix.fallback.UserFallbackFactory;
+import com.springboot.learn.service.fallback.UserFallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -23,6 +23,11 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         //TODO 在服务端这里制造一个异常，用来测试客户端调用时的熔断效果
         int i = 0;
         i = 1/i;
+        /*try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
         return user;
     }
 }

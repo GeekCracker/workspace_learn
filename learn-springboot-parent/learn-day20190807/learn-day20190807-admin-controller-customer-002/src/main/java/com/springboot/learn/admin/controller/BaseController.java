@@ -1,8 +1,8 @@
 package com.springboot.learn.admin.controller;
 
 
-import com.springboot.learn.response.ResponseResult;
 import com.springboot.learn.service.BaseService;
+import com.springboot.learn.response.ResponseResult;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,10 +29,11 @@ public abstract class BaseController<T> {
      * @param id
      * @return
      */
-    @GetMapping("queryById/{id}")
+    @RequestMapping("queryById/{id}")
     public ResponseResult queryById(@PathVariable("id") String id){
         //return ResponseResult.ok(getService().queryById(id).getdata());
-        LinkedHashMap<String,Object> linkedHashMap = (LinkedHashMap<String,Object>)getService().queryById(id).getBody();
+       // return (ResponseResult) getService().queryById(id).getBody();
+        LinkedHashMap<String,Object> linkedHashMap = (LinkedHashMap<String, Object>) getService().queryById(id).getBody();
         return ResponseResult.build((Integer)linkedHashMap.get("code"),(String)linkedHashMap.get("message"),linkedHashMap.get("data"));
     }
 }

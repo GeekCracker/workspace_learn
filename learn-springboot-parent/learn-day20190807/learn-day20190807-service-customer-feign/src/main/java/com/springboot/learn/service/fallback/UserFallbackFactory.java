@@ -1,4 +1,4 @@
-package com.springboot.learn.hystrix.fallback;
+package com.springboot.learn.service.fallback;
 
 import com.springboot.learn.service.UserService;
 import feign.hystrix.FallbackFactory;

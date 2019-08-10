@@ -17,7 +17,7 @@
     </parent>
 
     <properties>
-        <spring.boot.version>2.1.3.RELEASE</spring.boot.version>
+        <spring.boot.version>2.1.6.RELEASE</spring.boot.version>
         <spring.cloud.version>1.4.3.RELEASE</spring.cloud.version>
         <spring.cloud.updates.version>2.1.2.RELEASE</spring.cloud.updates.version>
     </properties>
@@ -85,6 +85,18 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+                <version>${spring.cloud.updates.version}</version>
+            </dependency>
+
+            <!-- Zuul网关 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-zuul</artifactId>
+                <version>${spring.cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
                 <version>${spring.cloud.updates.version}</version>
             </dependency>
         </dependencies>
