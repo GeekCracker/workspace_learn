@@ -3,7 +3,7 @@
   =====
 # 目录：
 ### [2019年8月](#1learn-day20190801)
-   * [learn-day20190801](#1learn-day20190801) [learn-day20190803](#2learn-day20190803) [learn-day20190805](#3learn-day20190805) [learn-day20190806](#4learn-day20190806) [learn-day20190807](#5learn-day20190807)
+   * [learn-day20190801](#1learn-day20190801) [learn-day20190803](#2learn-day20190803) [learn-day20190805](#3learn-day20190805) [learn-day20190806](#4learn-day20190806) [learn-day20190807](#5learn-day20190807) [learn-day20190808](#6learn-day20190808)
 ## 1、[learn-day20190801](learn-day20190801)
      spring-boot 参数校验@Valid、控制层@ControllerAdvice拦截器、异常处理@ExceptionHandler等注解的使用
 * [返回目录](#2019年8月)
@@ -34,6 +34,12 @@
      spring-cloud-starter-feign版本：1.4.3.RELEASE
      spring-cloud-starter-hystrix版本：1.4.3.RELEASE
      引入依赖时需要updates的版本:2.1.2.RELEASE（详见maven仓库以及父工程pom.xml文件）
+* [返回目录](#2019年8月)
+## 6、[learn-day20190808](learn-day20190808)
+     (1)spring-cloud 基本用法，包含三个服务提供者和两个服务消费者，
+        customer-001采用ribbon客户端调用服务，customer-002采用feign客户端调用服务，服务注册中心采用eureka，
+     (2)两个客户端分别引入了相应的Hystrix熔断器实现方式
+     (3)引入了zuul网关路由，PC或移动端通过zuul来访问服务，以此来屏蔽服务名称
 * [返回目录](#2019年8月)
 
 
