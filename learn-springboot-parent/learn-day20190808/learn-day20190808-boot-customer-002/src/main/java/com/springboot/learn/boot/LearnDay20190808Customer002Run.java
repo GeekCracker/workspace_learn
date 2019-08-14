@@ -21,12 +21,3 @@ public class LearnDay20190808Customer002Run {
         SpringApplication.run(LearnDay20190808Customer002Run.class,args);
     }
 }
-
-@Configuration
-class FooConfiguration {
-    @Bean
-    @Scope("prototype")
-    public Feign.Builder feignBuilder() {
-        return Feign.builder();
-    }
-}

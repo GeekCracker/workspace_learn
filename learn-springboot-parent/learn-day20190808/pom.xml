@@ -38,6 +38,7 @@
         <module>learn-day20190808-service-customer-feign</module>
         <module>learn-day20190808-configuration-customer</module>
         <module>learn-day20190808-configuration-provider</module>
+        <module>learn-day20190808-gateway-zuul</module>
     </modules>
 
 
