@@ -142,6 +142,16 @@ public class Test_分布式锁 {
 
     /**
      * 采用基于Netty框架的Redisson方式
+     *
+     * 采用这种方式后还存在弊端：如果Redis采用的是主从架构，非单体模式，当向master中写入锁，
+     * 主从还没来得及同步数据时，master宕机了，会发生主从切换，切换后master没有当前线程的锁，其他线程便可以进行加锁操作，
+     * 当前线程释放锁时，会释放掉其他线程的锁，最终整个集群的锁都会混乱掉
+     *
+     * 解决方案：由于Redis是主从模式，只有master-slave之间可以同步数据，所以仅仅采用Redis是没办法解决该问题的，
+     *
+     *           此时可以引入zookeeper，用来保证数据的一致性，每个zookeeper客户端对应一个master的redis服务，当一个master宕机后，其他master的数据也是最新的
+     *
+     *
      * @return
      */
     @RequestMapping(name = "/test4")
