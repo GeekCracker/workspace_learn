@@ -148,7 +148,8 @@ public class Test_分布式锁 {
     public String test4(){
         RLock rLock = redisson.getLock("lock");
         try{
-//            rLock.lock();//锁的超时时间默认为30秒，默认每10秒自旋一次延迟锁的有效时间，该锁是悲观锁，一个线程阻塞，会造成其他线程阻塞
+//            rLock.lock();//锁的超时时间默认为30秒，默认每10秒判断一下当前线程是否持有锁，如果持有，则延迟锁的有效时间，
+//            该锁是悲观锁，会造成其他线程阻塞，其他线程此时不断自旋，不断尝试去获取锁
             try {
                 rLock.tryLock(20,TimeUnit.SECONDS);//设置锁的超时时间
             } catch (InterruptedException e) {
