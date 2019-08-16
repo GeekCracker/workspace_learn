@@ -24,6 +24,13 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- 引入Greenwich.SR2版本的SpringCloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Greenwich.SR2</version>
+            </dependency>
+            <!-- 引入2.1.6版本的SpringBoot -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
