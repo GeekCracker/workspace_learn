@@ -24,6 +24,8 @@ public class Test_ÅÅĞò {
         System.out.println("ÅÅĞòºÄÊ±£º"+(System.currentTimeMillis()-currentTime));
         //sort3(arr);
 
+        String str = "a";
+
     }
 
     /**

@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +27,9 @@ public class Test_分布式锁 {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
+
+    private RedisTemplate redisTemplate;
+
 
     public static void main(String[] args) {
         SpringApplication.run(Test_分布式锁.class,args);
@@ -203,6 +207,10 @@ public class Test_分布式锁 {
         });
     }
 
+    /**
+     * 初始化Redisson实例对象
+     * @return
+     */
     @Bean
     public Redisson redisson(){
         Config config = new Config();
@@ -210,10 +218,16 @@ public class Test_分布式锁 {
         return (Redisson) Redisson.create(config);
     }
 
+    /**
+     * 初始化StringRedisTemplate实例对象
+     * @param redisConnectionFactory 传入Redis连接工厂类
+     * @return
+     */
     @Bean
     @ConditionalOnMissingBean(StringRedisTemplate.class)
     public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory){
         StringRedisTemplate stringRedisTemplate = new StringRedisTemplate();
+        //设置链接工厂类配置信息
         stringRedisTemplate.setConnectionFactory(redisConnectionFactory);
         return stringRedisTemplate;
     }
