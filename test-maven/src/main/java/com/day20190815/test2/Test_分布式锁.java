@@ -195,6 +195,14 @@ public class Test_分布式锁 {
     }
 
 
+
+    public String test5(){
+        stringRedisTemplate.opsForValue().setIfAbsent("lock","lock");
+        return null;
+    }
+
+
+
     public Boolean  setNx(String key,String value){
         /*stringRedisTemplate.opsForValue().set("stock",(stock-1)+"");*/
         return stringRedisTemplate.execute((RedisConnection conn) ->{
@@ -214,7 +222,9 @@ public class Test_分布式锁 {
     @Bean
     public Redisson redisson(){
         Config config = new Config();
-        config.useSingleServer().setAddress("redis://127.0.0.1:6379").setDatabase(0);
+        config.useSingleServer().setAddress("redis://127.0.0.1:6379").setDatabase(0).setConnectTimeout(0);
+
+        redisson.getConnectionManager().shutdown();
         return (Redisson) Redisson.create(config);
     }
 
