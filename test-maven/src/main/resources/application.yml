@@ -5,7 +5,7 @@ spring:
   redis:
     database: 0
     # Redis服务器地址
-    host: 127.0.0.1
+    host: 47.111.96.15
     # Redis服务器连接端口
     port: 6379
     # Redis服务器连接密码（默认为空）
@@ -13,13 +13,30 @@ spring:
     # 连接池最大连接数（使用负值表示没有限制）
     jedis:
       pool:
-        # 连接池最大连接数
-        max-active: 10000
-        # 连接池最大阻塞等待时间（使用负值表示没有限制）
-        max-wait: -1
+#        # 连接池最大连接数
+#        max-active: 10000
+#        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+#        max-wait: -1
+#        # 连接池中的最大空闲连接
+#        max-idle: 10000
+#        # 连接池中的最小空闲连接
+#        min-idle: 0
+
+
+        min-idle: 8
         # 连接池中的最大空闲连接
-        max-idle: 10000
-        # 连接池中的最小空闲连接
-        min-idle: 0
+        max-idle: 500
+        # maxTotal连接池最大连接数（使用负值表示没有限制）
+        max-active: 500
+        # 当资源池用尽后，调用者是否要等待。只有当为true时，下面的maxWaitMillis才会生效, 默认值:true
+        blockWhenExhausted: true
+        # 当资源池连接用尽后，调用者的最大等待时间(单位为毫秒),使用-1(负值)表示永不超时
+        max-wait: 10000
+        # 向资源池借用连接时是否做连接有效性检测(ping)，无效连接会被移除,默认值:false，业务量很大时候建议设置为false(多一次ping的开销)。
+        testOnBorrow: false
+        # 向资源池归还连接时是否做连接有效性检测(ping)，无效连接会被移除,默认值:false，业务量很大时候建议设置为false(多一次ping的开销)。
+        testOnReturn: false
+        # 是否开启jmx监控，可用于监控，默认值:true，建议开启，但应用本身也要开启
+        jmxEnabled: true
     timeout: 30000
 # 连接超时时间（毫秒）
