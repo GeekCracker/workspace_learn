@@ -1,0 +1,2 @@
+org.springframework.context.ApplicationContextInitializer=\
+com.day20190913.test1.initializer.MyInitializer

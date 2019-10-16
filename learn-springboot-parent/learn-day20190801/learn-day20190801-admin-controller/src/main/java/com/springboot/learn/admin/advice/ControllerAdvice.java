@@ -1,8 +1,10 @@
 package com.springboot.learn.admin.advice;
 
-import com.springboot.learn.response.ResponseResult;
+import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -17,11 +19,10 @@ import java.util.Map;
  */
 @Controller("AdminControllerAdvice")
 @org.springframework.web.bind.annotation.ControllerAdvice
+@Slf4j
 public class ControllerAdvice {
 
-
-
-
+    Logger logger = LoggerFactory.getLogger(ControllerAdvice.class);
     /**
      * 当Controller出现异常时，会走到这里，可以在这里统一处理异常
      * @param e
@@ -30,14 +31,16 @@ public class ControllerAdvice {
      */
     @ResponseBody
     @ExceptionHandler(value = Throwable.class)
-    public ResponseResult doError(Exception e) throws Exception{
+    public JSONObject doError(Exception e) throws Exception{
         //判断是否是参数校验的异常
-        if(e instanceof BindException){
+        /*if(e instanceof BindException){
             //获取参数校验结果集
             BindingResult result = ((BindException) e).getBindingResult();
             return  ResponseResult.args_validate_fail(validate(result));
-        }
-        return ResponseResult.unknown();
+        }*/
+        JSONObject object = new JSONObject();
+        log.error("{}","啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊");
+        return object;
     }
     /**
      * 参数校验异常结果处理

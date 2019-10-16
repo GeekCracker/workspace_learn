@@ -27,7 +27,13 @@ public class Test {
             BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
 
             String line = null;
+            int jump = 0;
             while((line = br.readLine())!=null){
+                if(jump==0){
+                    jump ++;
+                    System.out.println(line);
+                    continue;
+                }
                 String [] arr = line.split(" ");
                 String str = arr[2];
                 str = str.replaceAll("Ԫ","");
