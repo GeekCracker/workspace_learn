@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>learn-springboot-parent</artifactId>
+        <groupId>com.springboot.learn</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>learn-day20191101</artifactId>
+    <packaging>pom</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+    </dependencies>
+
+    <modules>
+        <module>learn-day20191101-rabbitmq-producer-boot</module>
+        <module>learn-day20191101-rabbitmq-consumer-boot</module>
+        <module>learn-day20191101-rabbitmq-consumer-controller</module>
+        <module>learn-day20191101-rabbitmq-consumer-service</module>
+        <module>learn-day20191101-rabbitmq-producer-controller</module>
+        <module>learn-day20191101-rabbitmq-producer-service</module>
+        <module>learn-day20191101-rabbitmq-producer-dao</module>
+        <module>learn-day20191101-rabbitmq-consumer-configuration</module>
+        <module>learn-day20191101-rabbitmq-producer-configuration</module>
+        <module>learn-day20191101-rabbitmq-domain</module>
+        <module>learn-day20191101-rabbitmq-exception</module>
+    </modules>
+
+
+</project>

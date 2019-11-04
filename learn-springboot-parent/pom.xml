@@ -114,6 +114,12 @@
                 <version>${spring.boot.version}</version>
             </dependency>
 
+            <!-- RabbitMQ消息中间件 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-amqp</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -125,6 +131,7 @@
         <module>learn-day20190807</module>
         <module>learn-day20190808</module>
         <module>learn-day20191029</module>
+        <module>learn-day20191101</module>
     </modules>
 
     <build>
