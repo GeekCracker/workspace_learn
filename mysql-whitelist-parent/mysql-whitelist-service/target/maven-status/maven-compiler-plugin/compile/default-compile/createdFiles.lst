@@ -1,0 +1,8 @@
+com\whitelist\mysql\service\TableService.class
+com\whitelist\mysql\service\DatabaseService.class
+com\whitelist\mysql\service\impl\TableServiceImpl.class
+com\whitelist\mysql\service\BaseService.class
+com\whitelist\mysql\service\impl\DatabaseServiceImpl.class
+com\whitelist\mysql\service\impl\BaseServiceImpl.class
+com\whitelist\mysql\service\UserService.class
+com\whitelist\mysql\service\impl\UserServiceImpl.class

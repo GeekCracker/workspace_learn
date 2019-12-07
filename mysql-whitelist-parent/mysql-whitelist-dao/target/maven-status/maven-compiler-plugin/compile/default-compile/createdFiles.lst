@@ -1,0 +1,4 @@
+com\whitelist\mysql\mapper\DatabaseMapper.class
+com\whitelist\mysql\mapper\TableMapper.class
+com\whitelist\mysql\mapper\BaseMapper.class
+com\whitelist\mysql\mapper\UserMapper.class

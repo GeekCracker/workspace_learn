@@ -1,0 +1,13 @@
+com\whitelist\mysql\domain\User.class
+com\whitelist\mysql\domain\Table.class
+com\whitelist\mysql\annotation\Table.class
+com\whitelist\mysql\response\ResponseResult.class
+com\whitelist\mysql\domain\Database.class
+com\whitelist\mysql\page\PageView.class
+com\whitelist\mysql\form\TableQueryForm.class
+com\whitelist\mysql\form\BaseQueryForm.class
+com\whitelist\mysql\response\CodeMessage.class
+com\whitelist\mysql\form\UserQueryForm.class
+com\whitelist\mysql\helper\QueryHelper.class
+com\whitelist\mysql\handler\IdTypeHandler.class
+com\whitelist\mysql\domain\BaseEntity.class

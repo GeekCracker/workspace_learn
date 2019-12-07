@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>授权页面</title>
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+    <style type="text/css" rel="stylesheet">
+        [v-cloak]{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container data-items" v-cloak>
+        <div class="col-sm-5 mt-5 text-sm-center float-left">
+            <label>Mysql用户列表</label>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>主机名或IP</th>
+                        <th>用户名</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item,index) in items.users">
+                       <td>{{index+1}}</td>
+                       <td>{{item.host}}</td>
+                       <td>{{item.user}}</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+        <div class="col-sm-7 mt-5 text-sm-center float-right">
+            <label>Mysql授权</label>
+            <div class="form-group row">
+                <label for="ip" class="col-sm-3">IP地址：</label>
+                <input type="text" v-model="items.form.host" class="form-control col-sm-8" id="ip" placeholder="IP地址">
+            </div>
+            <div class="form-group row">
+                <label for="database" class="col-sm-3">数据库：</label>
+                <select id="database" class="form-control col-sm-8" v-model="items.form.database" @change="queryTables($event.target.value)">
+                    <option value="*">所有</option>
+                    <option v-for="item in items.databases" :value="item.database">{{item.database}}</option>
+                </select>
+
+            </div>
+            <div class="form-group row">
+                <label for="table" class="col-sm-3">表：</label>
+                <select id="table" class="form-control col-sm-8" v-model="items.form.table">
+                    <option value="*">所有</option>
+                    <option v-for="item in items.tables" :value="item.tableName">{{item.tableName}}</option>
+                </select>
+            </div>
+            <div class="form-group row">
+                <label for="operation" class="col-sm-3">操作：</label>
+                <select id="operation" class="form-control col-sm-8" v-model="items.form.operation">
+                    <option value="ALL">所有</option>
+                    <option value="CREATE" >CREATE</option>
+                    <option value="DROP" >DROP</option>
+                    <option value="INSERT" >INSERT</option>
+                    <option value="DELETE" >DELETE</option>
+                    <option value="UPDATE" >UPDATE</option>
+                    <option value="SELECT" >SELECT</option>
+                </select>
+            </div>
+            <div class="form-group row">
+                <label for="user" class="col-sm-3">登录用户名：</label>
+                <input type="text" class="form-control col-sm-8" id="user" v-model="items.form.user" placeholder="登录用户名">
+            </div>
+            <div class="form-group row">
+                <label for="password" class="col-sm-3">登录密码：</label>
+                <input type="password" class="form-control col-sm-8" id="password" v-model="items.form.password" @input="items.showText='',$('#password2').removeClass('col-sm-5');
+                    $('#password2').addClass('col-sm-8');" placeholder="登录密码">
+            </div>
+            <div class="form-group row">
+                <label for="password2" class="col-sm-3">确认密码：</label>
+                <input type="password" class="form-control col-sm-8" id="password2" v-model="items.password2" @input="verifyPassword" placeholder="确认密码">
+                <label class="text-danger col-sm-3">{{items.showText}}</label>
+            </div>
+            <button type="button" class="btn btn-primary" @click="addUser">添加用户</button>
+            <button type="button" class="btn btn-secondary" @click="deleteUser">删除用户</button>
+            <button type="button" class="btn btn-primary" @click="grant">授权</button>
+            <button type="button" class="btn btn-secondary" @click="revoke">撤销授权</button>
+            <button type="button" class="btn btn-warning" @click="updatePassword">修改密码</button>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootbox.min.js"></script>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/axios.min.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:'.data-items',
+        data:{
+            items:{
+                users:[{host:'localhost',user:'root'}],
+                databases:[{database:'database1'},{database:'database2'}],
+                tables:[{tableName:'table1'},{tableName:'table2'}],
+                form:{
+                    host:'',
+                    database:'*',
+                    table:'*',
+                    operation:'ALL',
+                    user:'',
+                    password:''
+                },
+                password2:'',
+                showText:''
+            }
+        },
+        methods:{
+            verifyPassword:function(){
+                if(this.items.form.password != this.items.password2){
+                    $("#password2").removeClass("col-sm-8");
+                    $("#password2").addClass("col-sm-5");
+                    this.items.showText='两次密码输入不一致';
+                }else {
+                    $('#password2').removeClass('col-sm-5');
+                    $('#password2').addClass('col-sm-8');
+                    this.items.showText="";
+                }
+            },
+            queryTables:function(database){
+                var params = new URLSearchParams();
+                params.append('database',database);
+                loadData(this,'/table/queryData','post',params,null,'tables')
+            },
+            addUser:function(){
+                var form = new URLSearchParams(this.items.form);
+                loadData(this,'/user/addUser','post',form,null,null,function(vue,res){
+                    loadData(vue,'/user/queryData','post',null,null,'users');
+                },true);
+            },
+            deleteUser:function(){
+                var form = new URLSearchParams(this.items.form);
+                form.append('password','default');
+                loadData(this,'/user/deleteUser','post',form,null,null,function(vue,res){
+                    loadData(vue,'/user/queryData','post',null,null,'users');
+                },true);
+            },
+            grant:function(){
+                var form = new URLSearchParams(this.items.form);
+                loadData(this,'/user/grant','post',form,null,null,function(vue,res){
+                    loadData(vue,'/user/queryData','post',null,null,'users');
+                },true);
+            },
+            revoke:function(){
+                var form = new URLSearchParams(this.items.form);
+                form.append('password',"default")
+                loadData(this,'/user/revoke','post',form,null,null,function(vue,res){
+                    loadData(vue,'/user/queryData','post',null,null,'users');
+                },true);
+            },
+            updatePassword:function(){
+                var form = new URLSearchParams(this.items.form);
+                loadData(this,'/user/updatePassword','post',form,null,null,null,true);
+            }
+        },
+        mounted:function(){
+            loadData(this,'/user/queryData','post',null,null,'users');
+            loadData(this,'/database/listAll','post',null,null,'databases');
+            loadData(this,'/table/queryData','post',null,null,'tables');
+        }
+    });
+
+    /**
+     * @param vue 传入vue对象
+     * @param url 传入请求的url地址
+     * @param method 传入请求方式，例如：get,post,put,delete
+     * @param params 传入请求参数
+     * @param conf 传入配置信息
+     * @param attr 如果返回有数据，通过vue中该属性值来接收数据
+     * @param callback 回调函数
+     * @param dialog 是否在操作后弹框
+     */
+    function loadData(vue,url,method,params,conf,attr,callback,dialog){
+        if(!vue){
+            console.error("vue project is not null");
+            return ;
+        }
+        if(!url){
+            console.error("url is not null");
+            return ;
+        }
+        if(!method){
+            console.error("method is not null");
+            return ;
+        }
+        vue.$nextTick(function (){
+            if('get' === method){
+                axios.get(url,params,conf);
+            }
+            if('post' === method){
+                axios.post(url,params,conf)
+                    .then(function (res){
+                        if(res.data.code == 200){
+                            vue.items[attr] = res.data.data;
+                        }
+                        if(callback){
+                            callback(vue,res);
+                        }
+                        if(dialog){
+                            var data = res.data.data;
+                            bootbox.alert(res.data.message+"<br />"+(data?JSON.stringify(data):""));
+                        }
+                    })
+                    .catch(function (err){
+                        console.error("与后台交互异常");
+                    });
+            }
+        });
+    }
+</script>
+
+</html>

@@ -1,0 +1,4 @@
+com\whitelist\mysql\controller\UserController.class
+com\whitelist\mysql\controller\DatabaseController.class
+com\whitelist\mysql\controller\BaseController.class
+com\whitelist\mysql\controller\TableController.class
