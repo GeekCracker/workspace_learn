@@ -1,8 +1,8 @@
-E:\IdeaProjects\mysql-whitelist-parent\mysql-whitelist-service\src\main\java\com\whitelist\mysql\service\TableService.java
-E:\IdeaProjects\mysql-whitelist-parent\mysql-whitelist-service\src\main\java\com\whitelist\mysql\service\impl\TableServiceImpl.java
-E:\IdeaProjects\mysql-whitelist-parent\mysql-whitelist-service\src\main\java\com\whitelist\mysql\service\UserService.java
-E:\IdeaProjects\mysql-whitelist-parent\mysql-whitelist-service\src\main\java\com\whitelist\mysql\service\DatabaseService.java
-E:\IdeaProjects\mysql-whitelist-parent\mysql-whitelist-service\src\main\java\com\whitelist\mysql\service\impl\DatabaseServiceImpl.java
-E:\IdeaProjects\mysql-whitelist-parent\mysql-whitelist-service\src\main\java\com\whitelist\mysql\service\BaseService.java
-E:\IdeaProjects\mysql-whitelist-parent\mysql-whitelist-service\src\main\java\com\whitelist\mysql\service\impl\UserServiceImpl.java
-E:\IdeaProjects\mysql-whitelist-parent\mysql-whitelist-service\src\main\java\com\whitelist\mysql\service\impl\BaseServiceImpl.java
+E:\local_git_workspace\workspace_learn\mysql-whitelist-parent\mysql-whitelist-service\src\main\java\com\whitelist\mysql\service\DatabaseService.java
+E:\local_git_workspace\workspace_learn\mysql-whitelist-parent\mysql-whitelist-service\src\main\java\com\whitelist\mysql\service\impl\DatabaseServiceImpl.java
+E:\local_git_workspace\workspace_learn\mysql-whitelist-parent\mysql-whitelist-service\src\main\java\com\whitelist\mysql\service\impl\UserServiceImpl.java
+E:\local_git_workspace\workspace_learn\mysql-whitelist-parent\mysql-whitelist-service\src\main\java\com\whitelist\mysql\service\TableService.java
+E:\local_git_workspace\workspace_learn\mysql-whitelist-parent\mysql-whitelist-service\src\main\java\com\whitelist\mysql\service\impl\BaseServiceImpl.java
+E:\local_git_workspace\workspace_learn\mysql-whitelist-parent\mysql-whitelist-service\src\main\java\com\whitelist\mysql\service\impl\TableServiceImpl.java
+E:\local_git_workspace\workspace_learn\mysql-whitelist-parent\mysql-whitelist-service\src\main\java\com\whitelist\mysql\service\UserService.java
+E:\local_git_workspace\workspace_learn\mysql-whitelist-parent\mysql-whitelist-service\src\main\java\com\whitelist\mysql\service\BaseService.java
