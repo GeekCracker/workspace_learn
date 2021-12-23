@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 @RestController
-public class Test_·Ö²¼Ê½Ëø {
+public class Test_åˆ†å¸ƒå¼é” {
 
 
     @Autowired
@@ -32,28 +32,29 @@ public class Test_·Ö²¼Ê½Ëø {
 
 
     public static void main(String[] args) {
-        SpringApplication.run(Test_·Ö²¼Ê½Ëø.class,args);
+        SpringApplication.run(Test_åˆ†å¸ƒå¼é”.class,args);
     }
 
     /**
-     * ²»¼ÓÈÎºÎËø
+     * ä¸åŠ ä»»ä½•é”
      * @return
      */
     @RequestMapping("/test1")
     public String test1(){
         Integer stock = Integer.parseInt(String.valueOf(stringRedisTemplate.opsForValue().get("stock")));
+        System.out.println(stock);
         if(stock > 0){
             stringRedisTemplate.opsForValue().set("stock",(stock-1)+"");
-            System.out.println("¿Û¼õ³É¹¦£¬µ±Ç°¿â´æ£º"+(stock-1));
+            System.out.println("æ‰£å‡æˆåŠŸï¼Œå½“å‰åº“å­˜ï¼š"+(stock-1));
         }else {
-            System.out.println("¿Û¼õÊ§°Ü£¬¿â´æ²»×ã¡£");
+            System.out.println("æ‰£å‡å¤±è´¥ï¼Œåº“å­˜ä¸è¶³ã€‚");
         }
         return null;
     }
 
     /**
-     * Í¨¹ıRedisµÄsetNx·½·¨½øĞĞ¼ÓËø
-     * setNx£ºÖ»ÄÜÉèÖÃÒ»´ÎvalueÖµ
+     * é€šè¿‡Redisçš„setNxæ–¹æ³•è¿›è¡ŒåŠ é”
+     * setNxï¼šåªèƒ½è®¾ç½®ä¸€æ¬¡valueå€¼
      * @return
      */
     @RequestMapping("/test2")
@@ -61,41 +62,41 @@ public class Test_·Ö²¼Ê½Ëø {
         Integer stock = Integer.parseInt(String.valueOf(stringRedisTemplate.opsForValue().get("stock")));
         if(stock > 0){
             //stringRedisTemplate.opsForValue().set("stock",(stock-1)+"");
-            //É¾³ı¿â´æ
+            //åˆ é™¤åº“å­˜
             stringRedisTemplate.delete("stock");
             if (setNx("stock",(stock-1)+"")){
-                System.out.println("¿Û¼õ³É¹¦£¬µ±Ç°¿â´æ£º"+(stock-1));
+                System.out.println("æ‰£å‡æˆåŠŸï¼Œå½“å‰åº“å­˜ï¼š"+(stock-1));
             }else {
-                System.out.println("¿Û¼õÊ§°Ü");
+                System.out.println("æ‰£å‡å¤±è´¥");
             }
         }else {
-            System.out.println("¿Û¼õÊ§°Ü£¬¿â´æ²»×ã¡£");
+            System.out.println("æ‰£å‡å¤±è´¥ï¼Œåº“å­˜ä¸è¶³ã€‚");
         }
         return null;
     }
 
     /**
-     * Í¨¹ıRedisµÄincrement·½Ê½¼ÓËø
-     * increment£º¿ÉÒÔ¶ÔÒ»¸ökeyµÄÖµ½øĞĞ¼ÓÒ»¸öÊıµÄ²Ù×÷£¬Õâ¸öÊıÎª²½³¤£¬¿ÉÒÔÎªÕıÒ²¿ÉÒÔÎª¸º£¬Ä¬ÈÏ´Ó0¿ªÊ¼£¬Õâ¸ökey-value¿ÉÒÔ×÷ÎªËø
+     * é€šè¿‡Redisçš„incrementæ–¹å¼åŠ é”
+     * incrementï¼šå¯ä»¥å¯¹ä¸€ä¸ªkeyçš„å€¼è¿›è¡ŒåŠ ä¸€ä¸ªæ•°çš„æ“ä½œï¼Œè¿™ä¸ªæ•°ä¸ºæ­¥é•¿ï¼Œå¯ä»¥ä¸ºæ­£ä¹Ÿå¯ä»¥ä¸ºè´Ÿï¼Œé»˜è®¤ä»0å¼€å§‹ï¼Œè¿™ä¸ªkey-valueå¯ä»¥ä½œä¸ºé”
      *
      *
-     * È±Ïİ£ºÓÉÓÚredisÖ´ĞĞËÙ¶ÈºÜ¿ì£¬µ¼ÖÂÒ»Ğ©Ïß³ÌÃ»ÓĞÄÃµ½Ëø£¬¾ÍÒÑ¾­Ö´ĞĞÍêÁË£¬µ¼ÖÂ²»ÄÜÓĞĞòµÄ½øĞĞ¿â´æµÄÏû·Ñ£¬¿ÉÄÜÏÈÇëÇóµÄÃ»ÓĞ»ñÈ¡µ½Ëø£¬Ã»ÓĞÏû·Ñ£¬ºóÃæµÄÏß³Ì·´¶øÄÃµ½ËøÁË
+     * ç¼ºé™·ï¼šç”±äºredisæ‰§è¡Œé€Ÿåº¦å¾ˆå¿«ï¼Œå¯¼è‡´ä¸€äº›çº¿ç¨‹æ²¡æœ‰æ‹¿åˆ°é”ï¼Œå°±å·²ç»æ‰§è¡Œå®Œäº†ï¼Œå¯¼è‡´ä¸èƒ½æœ‰åºçš„è¿›è¡Œåº“å­˜çš„æ¶ˆè´¹ï¼Œå¯èƒ½å…ˆè¯·æ±‚çš„æ²¡æœ‰è·å–åˆ°é”ï¼Œæ²¡æœ‰æ¶ˆè´¹ï¼Œåé¢çš„çº¿ç¨‹åè€Œæ‹¿åˆ°é”äº†
      * @return
      */
-    boolean isDelay = true;//ÊÇ·ñÑÓ³ÙµÄ±äÁ¿
+    boolean isDelay = true;//æ˜¯å¦å»¶è¿Ÿçš„å˜é‡
     @RequestMapping("/test3")
     public String test3(){
         Thread thread = null;
         try {
-            //»ñÈ¡Ëø
-            Long lock = stringRedisTemplate.opsForValue().increment("lock",1);//ÀÖ¹ÛËø
-            stringRedisTemplate.expire("lock",10, TimeUnit.SECONDS);//½«ËøÉèÖÃ10ÃëÓĞĞ§Ê±¼ä£¬±ÜÃâ·şÎñå´»ú£¬Ã»ÓĞÖØÖÃËø£¬Ôì³ÉÆäËû·şÎñ»ñÈ¡²»µ½Ëø
+            //è·å–é”
+            Long lock = stringRedisTemplate.opsForValue().increment("lock",1);//ä¹è§‚é”
+            stringRedisTemplate.expire("lock",10, TimeUnit.SECONDS);//å°†é”è®¾ç½®10ç§’æœ‰æ•ˆæ—¶é—´ï¼Œé¿å…æœåŠ¡å®•æœºï¼Œæ²¡æœ‰é‡ç½®é”ï¼Œé€ æˆå…¶ä»–æœåŠ¡è·å–ä¸åˆ°é”
 
-            //ÕâÀïÉèÖÃ10Ãë£¬»¹´æÔÚÒ»¸öÎÊÌâ£ºµ±ÏÂÃæµÄÖ´ĞĞÂß¼­³¬¹ı10ÃëÊ±£¬µ±Ç°Ïß³Ì»¹Ã»Ö´ĞĞÍê£¬ËøÒÑ¾­Ê§Ğ§ÁË£¬ÆäËûÏß³Ì»áÄÃµ½Ëø£¬Ö´ĞĞÏàÓ¦µÄ³ÌĞò£¬
-            // µ±µÚ¶ş¸öÏß³Ì»¹Ã»Ö´ĞĞÍê£¬µÚÒ»¸öÏß³ÌÖ´ĞĞÍêÁË£¬µÚÒ»¸öÏß³ÌÖ´ĞĞµ½ÊÍ·ÅËøµÄ²½Öè£¬ÕâÊ±Èç¹ûÊÍ·ÅËø£¬ÊÍ·ÅµÄÊµ¼ÊÉÏÊÇµÚ¶ş¸öÏß³ÌµÄËø£¬ÕâÑùÕû¸ö¼¯ÈºµÄËø¾Í³öÏÖÁË»ìÂÒ²»¿É¿ØµÄÇé¿ö
+            //è¿™é‡Œè®¾ç½®10ç§’ï¼Œè¿˜å­˜åœ¨ä¸€ä¸ªé—®é¢˜ï¼šå½“ä¸‹é¢çš„æ‰§è¡Œé€»è¾‘è¶…è¿‡10ç§’æ—¶ï¼Œå½“å‰çº¿ç¨‹è¿˜æ²¡æ‰§è¡Œå®Œï¼Œé”å·²ç»å¤±æ•ˆäº†ï¼Œå…¶ä»–çº¿ç¨‹ä¼šæ‹¿åˆ°é”ï¼Œæ‰§è¡Œç›¸åº”çš„ç¨‹åºï¼Œ
+            // å½“ç¬¬äºŒä¸ªçº¿ç¨‹è¿˜æ²¡æ‰§è¡Œå®Œï¼Œç¬¬ä¸€ä¸ªçº¿ç¨‹æ‰§è¡Œå®Œäº†ï¼Œç¬¬ä¸€ä¸ªçº¿ç¨‹æ‰§è¡Œåˆ°é‡Šæ”¾é”çš„æ­¥éª¤ï¼Œè¿™æ—¶å¦‚æœé‡Šæ”¾é”ï¼Œé‡Šæ”¾çš„å®é™…ä¸Šæ˜¯ç¬¬äºŒä¸ªçº¿ç¨‹çš„é”ï¼Œè¿™æ ·æ•´ä¸ªé›†ç¾¤çš„é”å°±å‡ºç°äº†æ··ä¹±ä¸å¯æ§çš„æƒ…å†µ
 
-            //½â¾ö·½°¸£ºÔÚÕâ¶Î³ÌĞò¶ÎÖĞÁíÍâÆô¶¯Ò»¸öÏß³Ì£¬²»¶Ï¼àÌıËø£¬Èç¹ûËø»¹´æÔÚ£¬¸øËøÖØĞÂÉèÖÃÒ»¸ö¹ıÆÚÊ±¼ä£¬±£Ö¤³ÌĞòÎ´Ö´ĞĞÍêËø²»»áÊ§Ğ§
-            //±×¶Ë£¬¸ÃËøÎª±¯¹ÛËø£¬µ±Ç°Ïß³Ì»á×èÈûÆäËûÏß³ÌÄÃµ½Ëø£¬´¿incrementµÄ·½Ê½ÊÇÀÖ¹ÛËø£¬
+            //è§£å†³æ–¹æ¡ˆï¼šåœ¨è¿™æ®µç¨‹åºæ®µä¸­å¦å¤–å¯åŠ¨ä¸€ä¸ªçº¿ç¨‹ï¼Œä¸æ–­ç›‘å¬é”ï¼Œå¦‚æœé”è¿˜å­˜åœ¨ï¼Œç»™é”é‡æ–°è®¾ç½®ä¸€ä¸ªè¿‡æœŸæ—¶é—´ï¼Œä¿è¯ç¨‹åºæœªæ‰§è¡Œå®Œé”ä¸ä¼šå¤±æ•ˆ
+            //å¼Šç«¯ï¼Œè¯¥é”ä¸ºæ‚²è§‚é”ï¼Œå½“å‰çº¿ç¨‹ä¼šé˜»å¡å…¶ä»–çº¿ç¨‹æ‹¿åˆ°é”ï¼Œçº¯incrementçš„æ–¹å¼æ˜¯ä¹è§‚é”ï¼Œ
             if(lock == 1){
                 thread = new Thread(new Runnable() {
                     @Override
@@ -104,7 +105,7 @@ public class Test_·Ö²¼Ê½Ëø {
                             while(isDelay){
                                 Thread.sleep(1000);
                                 if(stringRedisTemplate.opsForValue().get("lock") != null){
-                                    System.out.println("¿ªÊ¼ÑÓ³ÙËø");
+                                    System.out.println("å¼€å§‹å»¶è¿Ÿé”");
                                     stringRedisTemplate.expire("lock",10, TimeUnit.SECONDS);
                                 }
                             }
@@ -118,15 +119,15 @@ public class Test_·Ö²¼Ê½Ëø {
                 Integer stock = Integer.parseInt(String.valueOf(stringRedisTemplate.opsForValue().get("stock")));
                 if(stock > 0){
                     try {
-                        //ÔÚÕâÀïÄ£Äâ³ÌĞò¶Î³¬Ê±£¬Ê±¼ä³¬¹ıÁËËøµÄÓĞĞ§ÆÚ
+                        //åœ¨è¿™é‡Œæ¨¡æ‹Ÿç¨‹åºæ®µè¶…æ—¶ï¼Œæ—¶é—´è¶…è¿‡äº†é”çš„æœ‰æ•ˆæœŸ
                         Thread.sleep(15000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                     stringRedisTemplate.opsForValue().set("stock",(stock-1)+"");
-                    System.out.println("¿Û¼õ³É¹¦£¬µ±Ç°¿â´æ£º"+(stock-1));
+                    System.out.println("æ‰£å‡æˆåŠŸï¼Œå½“å‰åº“å­˜ï¼š"+(stock-1));
                 }else {
-                    System.out.println("¿Û¼õÊ§°Ü£¬¿â´æ²»×ã¡£");
+                    System.out.println("æ‰£å‡å¤±è´¥ï¼Œåº“å­˜ä¸è¶³ã€‚");
                 }
             }
         }finally {
@@ -145,15 +146,15 @@ public class Test_·Ö²¼Ê½Ëø {
 
 
     /**
-     * ²ÉÓÃ»ùÓÚNetty¿ò¼ÜµÄRedisson·½Ê½
+     * é‡‡ç”¨åŸºäºNettyæ¡†æ¶çš„Redissonæ–¹å¼
      *
-     * ²ÉÓÃÕâÖÖ·½Ê½ºó»¹´æÔÚ±×¶Ë£ºÈç¹ûRedis²ÉÓÃµÄÊÇÖ÷´Ó¼Ü¹¹£¬·Çµ¥ÌåÄ£Ê½£¬µ±ÏòmasterÖĞĞ´ÈëËø£¬
-     * Ö÷´Ó»¹Ã»À´µÃ¼°Í¬²½Êı¾İÊ±£¬masterå´»úÁË£¬»á·¢ÉúÖ÷´ÓÇĞ»»£¬ÇĞ»»ºómasterÃ»ÓĞµ±Ç°Ïß³ÌµÄËø£¬ÆäËûÏß³Ì±ã¿ÉÒÔ½øĞĞ¼ÓËø²Ù×÷£¬
-     * µ±Ç°Ïß³ÌÊÍ·ÅËøÊ±£¬»áÊÍ·ÅµôÆäËûÏß³ÌµÄËø£¬×îÖÕÕû¸ö¼¯ÈºµÄËø¶¼»á»ìÂÒµô
+     * é‡‡ç”¨è¿™ç§æ–¹å¼åè¿˜å­˜åœ¨å¼Šç«¯ï¼šå¦‚æœRedisé‡‡ç”¨çš„æ˜¯ä¸»ä»æ¶æ„ï¼Œéå•ä½“æ¨¡å¼ï¼Œå½“å‘masterä¸­å†™å…¥é”ï¼Œ
+     * ä¸»ä»è¿˜æ²¡æ¥å¾—åŠåŒæ­¥æ•°æ®æ—¶ï¼Œmasterå®•æœºäº†ï¼Œä¼šå‘ç”Ÿä¸»ä»åˆ‡æ¢ï¼Œåˆ‡æ¢åmasteræ²¡æœ‰å½“å‰çº¿ç¨‹çš„é”ï¼Œå…¶ä»–çº¿ç¨‹ä¾¿å¯ä»¥è¿›è¡ŒåŠ é”æ“ä½œï¼Œ
+     * å½“å‰çº¿ç¨‹é‡Šæ”¾é”æ—¶ï¼Œä¼šé‡Šæ”¾æ‰å…¶ä»–çº¿ç¨‹çš„é”ï¼Œæœ€ç»ˆæ•´ä¸ªé›†ç¾¤çš„é”éƒ½ä¼šæ··ä¹±æ‰
      *
-     * ½â¾ö·½°¸£ºÓÉÓÚRedisÊÇÖ÷´ÓÄ£Ê½£¬Ö»ÓĞmaster-slaveÖ®¼ä¿ÉÒÔÍ¬²½Êı¾İ£¬ËùÒÔ½ö½ö²ÉÓÃRedisÊÇÃ»°ì·¨½â¾ö¸ÃÎÊÌâµÄ£¬
+     * è§£å†³æ–¹æ¡ˆï¼šç”±äºRedisæ˜¯ä¸»ä»æ¨¡å¼ï¼Œåªæœ‰master-slaveä¹‹é—´å¯ä»¥åŒæ­¥æ•°æ®ï¼Œæ‰€ä»¥ä»…ä»…é‡‡ç”¨Redisæ˜¯æ²¡åŠæ³•è§£å†³è¯¥é—®é¢˜çš„ï¼Œ
      *
-     *           ´ËÊ±¿ÉÒÔÒıÈëzookeeper£¬ÓÃÀ´±£Ö¤Êı¾İµÄÒ»ÖÂĞÔ£¬Ã¿¸özookeeper¿Í»§¶Ë¶ÔÓ¦Ò»¸ömasterµÄredis·şÎñ£¬µ±Ò»¸ömasterå´»úºó£¬ÆäËûmasterµÄÊı¾İÒ²ÊÇ×îĞÂµÄ
+     *           æ­¤æ—¶å¯ä»¥å¼•å…¥zookeeperï¼Œç”¨æ¥ä¿è¯æ•°æ®çš„ä¸€è‡´æ€§ï¼Œæ¯ä¸ªzookeeperå®¢æˆ·ç«¯å¯¹åº”ä¸€ä¸ªmasterçš„redisæœåŠ¡ï¼Œå½“ä¸€ä¸ªmasterå®•æœºåï¼Œå…¶ä»–masterçš„æ•°æ®ä¹Ÿæ˜¯æœ€æ–°çš„
      *
      *
      * @return
@@ -162,17 +163,17 @@ public class Test_·Ö²¼Ê½Ëø {
     public String test4(){
         RLock rLock = redisson.getLock("lock");
         try{
-//            rLock.lock();//ËøµÄ³¬Ê±Ê±¼äÄ¬ÈÏÎª30Ãë£¬Ä¬ÈÏÃ¿10ÃëÅĞ¶ÏÒ»ÏÂµ±Ç°Ïß³ÌÊÇ·ñ³ÖÓĞËø£¬Èç¹û³ÖÓĞ£¬ÔòÑÓ³ÙËøµÄÓĞĞ§Ê±¼ä£¬
-//            ¸ÃËøÊÇ±¯¹ÛËø£¬»áÔì³ÉÆäËûÏß³Ì×èÈû£¬ÆäËûÏß³Ì´ËÊ±²»¶Ï×ÔĞı£¬²»¶Ï³¢ÊÔÈ¥»ñÈ¡Ëø
+//            rLock.lock();//é”çš„è¶…æ—¶æ—¶é—´é»˜è®¤ä¸º30ç§’ï¼Œé»˜è®¤æ¯10ç§’åˆ¤æ–­ä¸€ä¸‹å½“å‰çº¿ç¨‹æ˜¯å¦æŒæœ‰é”ï¼Œå¦‚æœæŒæœ‰ï¼Œåˆ™å»¶è¿Ÿé”çš„æœ‰æ•ˆæ—¶é—´ï¼Œ
+//            è¯¥é”æ˜¯æ‚²è§‚é”ï¼Œä¼šé€ æˆå…¶ä»–çº¿ç¨‹é˜»å¡ï¼Œå…¶ä»–çº¿ç¨‹æ­¤æ—¶ä¸æ–­è‡ªæ—‹ï¼Œä¸æ–­å°è¯•å»è·å–é”
             try {
-                rLock.tryLock(20,TimeUnit.SECONDS);//ÉèÖÃËøµÄ³¬Ê±Ê±¼ä
+                rLock.tryLock(20,TimeUnit.SECONDS);//è®¾ç½®é”çš„è¶…æ—¶æ—¶é—´
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             Integer stock = Integer.parseInt(String.valueOf(stringRedisTemplate.opsForValue().get("stock")));
             if(stock > 0){
                 try {
-                    //ÔÚÕâÀïÄ£Äâ³ÌĞò¶Î³¬Ê±£¬Ê±¼ä³¬¹ıÁËËøµÄÓĞĞ§ÆÚ
+                    //åœ¨è¿™é‡Œæ¨¡æ‹Ÿç¨‹åºæ®µè¶…æ—¶ï¼Œæ—¶é—´è¶…è¿‡äº†é”çš„æœ‰æ•ˆæœŸ
                     if(stock == 29){
                         Thread.sleep(2000);
                     }else if(stock == 28){
@@ -182,9 +183,9 @@ public class Test_·Ö²¼Ê½Ëø {
                     e.printStackTrace();
                 }
                 stringRedisTemplate.opsForValue().set("stock",(stock-1)+"");
-                System.out.println("¿Û¼õ³É¹¦£¬µ±Ç°¿â´æ£º"+(stock-1));
+                System.out.println("æ‰£å‡æˆåŠŸï¼Œå½“å‰åº“å­˜ï¼š"+(stock-1));
             }else {
-                System.out.println("¿Û¼õÊ§°Ü£¬¿â´æ²»×ã¡£");
+                System.out.println("æ‰£å‡å¤±è´¥ï¼Œåº“å­˜ä¸è¶³ã€‚");
             }
         }finally {
             if(rLock.isLocked()){
@@ -216,7 +217,7 @@ public class Test_·Ö²¼Ê½Ëø {
     }
 
     /**
-     * ³õÊ¼»¯RedissonÊµÀı¶ÔÏó
+     * åˆå§‹åŒ–Redissonå®ä¾‹å¯¹è±¡
      * @return
      */
     @Bean
@@ -224,20 +225,20 @@ public class Test_·Ö²¼Ê½Ëø {
         Config config = new Config();
         config.useSingleServer().setAddress("redis://127.0.0.1:6379").setDatabase(0).setConnectTimeout(0);
 
-        redisson.getConnectionManager().shutdown();
+        //redisson.getConnectionManager().shutdown();
         return (Redisson) Redisson.create(config);
     }
 
     /**
-     * ³õÊ¼»¯StringRedisTemplateÊµÀı¶ÔÏó
-     * @param redisConnectionFactory ´«ÈëRedisÁ¬½Ó¹¤³§Àà
+     * åˆå§‹åŒ–StringRedisTemplateå®ä¾‹å¯¹è±¡
+     * @param redisConnectionFactory ä¼ å…¥Redisè¿æ¥å·¥å‚ç±»
      * @return
      */
     @Bean
     @ConditionalOnMissingBean(StringRedisTemplate.class)
     public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory){
         StringRedisTemplate stringRedisTemplate = new StringRedisTemplate();
-        //ÉèÖÃÁ´½Ó¹¤³§ÀàÅäÖÃĞÅÏ¢
+        //è®¾ç½®é“¾æ¥å·¥å‚ç±»é…ç½®ä¿¡æ¯
         stringRedisTemplate.setConnectionFactory(redisConnectionFactory);
         return stringRedisTemplate;
     }

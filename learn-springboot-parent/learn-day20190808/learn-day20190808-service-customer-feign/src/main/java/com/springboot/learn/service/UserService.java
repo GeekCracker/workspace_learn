@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface UserService extends BaseService<User>{
 
     @GetMapping(value = "/admin/user/queryById/{id}")
+    @Override
     ResponseEntity<Object> queryById(@PathVariable("id") String id);
 }
 

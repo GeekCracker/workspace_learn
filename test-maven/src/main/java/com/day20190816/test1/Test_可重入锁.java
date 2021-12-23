@@ -2,13 +2,13 @@ package com.day20190816.test1;
 
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Test_¿ÉÖØÈëËø {
+public class Test_å¯é‡å…¥é” {
     public static void main(String[] args) {
-        //ÔÚÕâÀï£¬test1¡¢test2¡¢test3µÄËø¶¼ÊÇtest_¿ÉÖØÈëËøÕâ¸ö¶ÔÏóËø£¬ÔÚtest1»ñÈ¡µ½ËøÊ±£¬test2ºÍtest3¶¼¿ÉÒÔ»ñÈ¡µ½¸ÃËø£¬ËùÒÔsynchronizedÊÇ¿ÉÖØÈëËø
-        Test_¿ÉÖØÈëËø test_¿ÉÖØÈëËø = new Test_¿ÉÖØÈëËø();
-        test_¿ÉÖØÈëËø.test1();
+        //åœ¨è¿™é‡Œï¼Œtest1ã€test2ã€test3çš„é”éƒ½æ˜¯test_å¯é‡å…¥é”è¿™ä¸ªå¯¹è±¡é”ï¼Œåœ¨test1è·å–åˆ°é”æ—¶ï¼Œtest2å’Œtest3éƒ½å¯ä»¥è·å–åˆ°è¯¥é”ï¼Œæ‰€ä»¥synchronizedæ˜¯å¯é‡å…¥é”
+        Test_å¯é‡å…¥é” test_å¯é‡å…¥é” = new Test_å¯é‡å…¥é”();
+        test_å¯é‡å…¥é”.test1();
 
-        test_¿ÉÖØÈëËø.test4();
+        test_å¯é‡å…¥é”.test4();
 
     }
 
@@ -25,17 +25,17 @@ public class Test_¿ÉÖØÈëËø {
     }
 
     private void test4(){
-        //¿ÉÖØÈëËø
+        //å¯é‡å…¥é”
         ReentrantLock reentrantLock = new ReentrantLock();
         int num = 3;
-        System.out.println("=========¿ªÊ¼¼ÓËø=====");
+        System.out.println("=========å¼€å§‹åŠ é”=====");
         for(int i = 0;i<num;i++){
             reentrantLock.lock();
         }
         for(int i = 0;i<num;i++){
             reentrantLock.unlock();
         }
-        System.out.println("========ÊÍ·ÅËø========");
+        System.out.println("========é‡Šæ”¾é”========");
     }
 
     private void test5(){
