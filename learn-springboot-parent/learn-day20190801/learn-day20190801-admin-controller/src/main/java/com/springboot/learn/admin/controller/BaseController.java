@@ -1,19 +1,18 @@
 package com.springboot.learn.admin.controller;
 
+import com.springboot.learn.form.BaseForm;
 import com.springboot.learn.form.UserQueryForm;
 import com.springboot.learn.response.ResponseResult;
 import com.springboot.learn.service.BaseService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.validation.Valid;
 
 
 @RestController("AdminBaseController")
 @RequestMapping("/")
-@Validated
 public abstract class BaseController<T> {
 
     /**
@@ -22,8 +21,8 @@ public abstract class BaseController<T> {
      */
     protected abstract BaseService<T> getService();
 
-    @GetMapping("queryById")
-    public ResponseResult queryById(@Valid UserQueryForm userQueryForm){
-        return ResponseResult.ok(getService().queryById(userQueryForm.getEmail()));
+    @GetMapping("queryById/{id}")
+    public ResponseResult queryById(@PathVariable("id") String id){
+        return ResponseResult.ok(getService().queryById(id));
     }
 }

@@ -1,7 +1,7 @@
 package com.springboot.learn.admin.advice;
 
 import com.springboot.learn.response.ResponseResult;
-import org.springframework.stereotype.Controller;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * Controller层拦截器
  */
-@Controller("AdminControllerAdvice")
+@Slf4j
 @org.springframework.web.bind.annotation.ControllerAdvice
 public class ControllerAdvice {
 

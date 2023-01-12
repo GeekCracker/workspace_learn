@@ -2,8 +2,6 @@ package com.springboot.learn.admin.advice;
 
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -17,12 +15,10 @@ import java.util.Map;
 /**
  * Controller层拦截器
  */
-@Controller("AdminControllerAdvice")
-@org.springframework.web.bind.annotation.ControllerAdvice
 @Slf4j
+@org.springframework.web.bind.annotation.ControllerAdvice
 public class ControllerAdvice {
 
-    Logger logger = LoggerFactory.getLogger(ControllerAdvice.class);
     /**
      * 当Controller出现异常时，会走到这里，可以在这里统一处理异常
      * @param e
@@ -59,3 +55,4 @@ public class ControllerAdvice {
         return  new LinkedHashMap<String, Object>();
     }
 }
+
