@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>learn-day20191029-jms-customer001-boot</artifactId>
+    <artifactId>learn-day20191029-jms-customer-boot-001</artifactId>
 
 
 </project>

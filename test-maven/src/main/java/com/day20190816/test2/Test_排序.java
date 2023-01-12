@@ -2,7 +2,7 @@ package com.day20190816.test2;
 
 import java.util.Arrays;
 
-public class Test_ÅÅĞò {
+public class Test_æ’åº {
 
     public static void main(String[] args) {
         long curtime = System.currentTimeMillis();
@@ -17,11 +17,11 @@ public class Test_ÅÅĞò {
                 break;
             }
         }
-        System.out.println("===Êı×é´´½¨³É¹¦===ºÄÊ±:"+(System.currentTimeMillis()-curtime));
-        System.out.println("==¿ªÊ¼ÅÅĞò==");
+        System.out.println("===æ•°ç»„åˆ›å»ºæˆåŠŸ===è€—æ—¶:"+(System.currentTimeMillis()-curtime));
+        System.out.println("==å¼€å§‹æ’åº==");
         long currentTime = System.currentTimeMillis();
         Integer [] result = sort4(arr,0,arr.length-1);
-        System.out.println("ÅÅĞòºÄÊ±£º"+(System.currentTimeMillis()-currentTime));
+        System.out.println("æ’åºè€—æ—¶ï¼š"+(System.currentTimeMillis()-currentTime));
         //sort3(arr);
 
         String str = "a";
@@ -57,7 +57,7 @@ public class Test_ÅÅĞò {
     }
 
     /**
-     * Ñ¡ÔñÅÅĞò
+     * é€‰æ‹©æ’åº
      * @param arr
      * @return
      */
@@ -74,17 +74,17 @@ public class Test_ÅÅĞò {
                 }
             }
         }
-        //1250024999´Î
+        //1250024999æ¬¡
         //6237ms
         System.out.println(num);
         return arr;
     }
     /**
-     * Ã°ÅİÅÅĞò
+     * å†’æ³¡æ’åº
      *
      *  i   j       4   3   1   7   6
-     *  0   0       3   1   4   6   7       µÚÒ»ÂÖ±È½Ï4´Î
-     *              1   3   4   6   7       µÚ¶şÂÖ±È½Ï3´Î
+     *  0   0       3   1   4   6   7       ç¬¬ä¸€è½®æ¯”è¾ƒ4æ¬¡
+     *              1   3   4   6   7       ç¬¬äºŒè½®æ¯”è¾ƒ3æ¬¡
      *
      *
      */
@@ -111,13 +111,13 @@ public class Test_ÅÅĞò {
         //1249973289    10673
         //1249975000    10227
 
-        System.out.println("ÀÛ¼Ó´ÎÊı£º"+num);
+        System.out.println("ç´¯åŠ æ¬¡æ•°ï¼š"+num);
         return arr;
     }
 
 
     /**
-     * ¿ìËÙÅÅĞò
+     * å¿«é€Ÿæ’åº
      *
      *
      */
@@ -138,7 +138,7 @@ public class Test_ÅÅĞò {
             sort4(arr,left,i-1);
             sort4(arr,i + 1,right);
         }
-        //50000Êı×Ö  16ms
+        //50000æ•°å­—  16ms
         return arr;
     }
 }
