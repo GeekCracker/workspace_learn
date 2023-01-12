@@ -173,6 +173,7 @@
         <module>learn-day20191101</module>
         <module>learn-day20200302</module>
         <module>learn-day20200304</module>
+        <module>learn-day20211208</module>
     </modules>
 
     <build>
